@@ -1,5 +1,6 @@
+import { Categoria } from './../../categoria/entities/categoria.entity';
 import { IsNotEmpty, MaxLength } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"; 
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"; 
 //ESSA CLASSE VAI REPRESENTAR UMA TABELA NO NOSSO BANCO
 @Entity({name: 'tb_tarefa'})
 export class Tarefa{
@@ -26,4 +27,10 @@ export class Tarefa{
     
     @Column()
     status: boolean
+
+    @ManyToOne(() => Categoria, (categoria) => categoria.tarefas,{
+       //AO EXCLUIR UMA CATEGORIAS TODAS TAREFAS DEVEM SER EXCLUIDAS 
+       onDelete: "CASCADE"
+    })
+    categoria: Categoria
 }
