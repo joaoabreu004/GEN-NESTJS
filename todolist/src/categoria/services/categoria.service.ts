@@ -11,7 +11,7 @@ export class CategoriaService{
     ){}
 
     
-    //MÉTODOs
+    //MÉTODOS 
     async findAll(): Promise<Categoria[]>{
         return this.categoriaRepository.find({
             relations: {

@@ -13,7 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port: 3306,
       username: 'root',
       password: 'MMJ210491',
-      database: 'db_todo',
+      database: 'db_todo_list_api',
       entities: [Tarefa, Categoria],
       synchronize: true
     }),
